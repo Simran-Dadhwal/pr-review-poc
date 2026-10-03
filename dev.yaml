@@ -1,0 +1,13 @@
+app:
+  name: "Test"
+  version: "v1"
+  id: "111111"
+ 
+businessName: "Test"
+businessObjectName: "Test"
+ 
+retry:
+  freq: "2000"
+  attempts: "2"
+
+ 
