@@ -5,10 +5,6 @@ app:
  
 businessName: "Test"
 businessObjectName: "Test"
-
-error:
-  log:
-    level: "info"
  
 retry:
   freq: "2000"
