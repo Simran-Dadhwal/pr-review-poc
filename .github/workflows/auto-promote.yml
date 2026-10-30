@@ -1,0 +1,29 @@
+name: Auto Promote feature-v1 To develop
+
+on:
+  pull_request:
+    types:
+      - closed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pr:
+    if: >
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.base.ref == 'feature-v1'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create PR feature-v1 -> develop
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create \
+            --base develop \
+            --head feature-v1 \
+            --title "Auto Promotion feature-v1 -> develop" \
+            --body "Automatically created after merge into feature-v1."
